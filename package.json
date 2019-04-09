@@ -1,0 +1,21 @@
+{
+  "name": "spotify-app",
+  "version": "1.0.0",
+  "description": "Spotify application built with React",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server.js",
+    "client": "node start-client.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "concurrently": "^4.1.0",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "querystring": "^0.2.0"
+  }
+}
