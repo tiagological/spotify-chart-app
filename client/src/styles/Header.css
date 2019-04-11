@@ -1,3 +1,13 @@
-#header {
-  margin-top: 100px;
+#header-container {
+  margin-top: 60px;
+}
+
+#header-text {
+  font-size: 3em;
+}
+
+@media only screen and (min-width: 992px) {
+  #header-container {
+    margin-top: 100px;
+  }
 }

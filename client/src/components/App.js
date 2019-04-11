@@ -1,18 +1,18 @@
 import React from 'react';
-import Header from './Header';
-import SearchBar from './SearchBar';
-import SearchButton from './SearchButton';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import Home from './Home';
 import TrackList from './TrackList';
-import '../styles/App.css';
+import NotFound from './NotFound';
 
 const App = () => {
   return (
-    <div className='ui container' id='app-container'>
-      <Header />
-      <SearchBar />
-      <SearchButton />
-      <TrackList />
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/' exact component={Home} />
+        <Route path='/results' component={TrackList} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
 };
 

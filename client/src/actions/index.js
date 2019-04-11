@@ -19,16 +19,20 @@ export const updateSearchTerm = searchTerm => {
   };
 };
 
+export const updateCountry = searchTerm => {
+  return { type: 'COUNTRY_SELECTED', payload: searchTerm };
+};
+
 export const clearSearchTerm = () => {
   return {
     type: 'CLEAR_SEARCH'
   };
 };
 
-export const selectSong = () => {
+export const errorToggler = payload => {
   return {
-    type: 'SONG_SELECTED',
-    payload: 'A song has been selected'
+    type: 'ERROR_TOGGLE',
+    payload: payload
   };
 };
 
@@ -44,7 +48,10 @@ export const fetchSongs = (token, searchTerm) => async dispatch => {
   }
 
   if (playlistId.length < 1) {
-    alert('Sorry, that country was not found');
+    dispatch({
+      type: 'ERROR_TOGGLE',
+      payload: 'Sorry, that country was not found'
+    });
   } else {
     const response = await axios({
       method: 'get',
@@ -60,7 +67,10 @@ export const fetchSongs = (token, searchTerm) => async dispatch => {
     let tracksData = [];
 
     if (response.data.items.length === 0) {
-      alert('Your search returned no results');
+      dispatch({
+        type: 'ERROR_TOGGLE',
+        payload: 'Your search returned no results'
+      });
     } else if (response.data.items.length > 0) {
       for (let i = 0; i < 10; i++) {
         tracksData.push(response.data.items[i]);

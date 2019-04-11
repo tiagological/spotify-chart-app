@@ -1,0 +1,19 @@
+#search-bar-container {
+  margin-top: 50px;
+}
+
+#search-bar {
+  width: 300px;
+  height: 60px;
+  font-size: 1.5em;
+}
+
+#search-button-container {
+  margin-top: 50px;
+}
+
+#search-button {
+  height: 60px;
+  width: 150px;
+  font-size: 1.75em;
+}

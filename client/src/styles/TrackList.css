@@ -1,0 +1,30 @@
+.track-list-container {
+  margin-top: 60px;
+}
+
+.centered-header {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.track-item {
+  margin: 60px auto !important;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 40px !important;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.track-item:hover {
+  background-color: #f26202;
+  box-shadow: 0 10px 5px #000000;
+  border: none;
+  border-radius: 8px;
+  transform: translateY(-10px);
+}
+
+@media (min-width: 992px) {
+  .track-item {
+    width: 35%;
+  }
+}

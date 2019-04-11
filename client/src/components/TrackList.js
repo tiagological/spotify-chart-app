@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../styles/TrackItem.css';
+import { Link, Redirect } from 'react-router-dom';
+import '../styles/TrackList.css';
 
 const TrackList = props => {
   const data = props.tracks;
@@ -8,9 +9,10 @@ const TrackList = props => {
     return (
       <div
         key={item.track.id}
-        className='ui one column centered grid'
-        id='track-item'>
-        <div className='row'>{data.indexOf(item) + 1}</div>
+        className='ui one column centered grid track-item'>
+        <div className='row'>
+          <h3>{data.indexOf(item) + 1}</h3>
+        </div>
         <div className='row'>
           <p>Artist: {item.track.artists[0].name}</p>
         </div>
@@ -32,12 +34,26 @@ const TrackList = props => {
       </div>
     );
   });
-  return <div className='ui container'>{list}</div>;
+  return props.error ? (
+    <Redirect to='/' />
+  ) : (
+    <div className='ui container track-list-container'>
+      <Link to='/'>
+        <button>Home</button>
+      </Link>
+      <h1 className='centered-header'>{`${
+        props.country
+      } Top 10 on Spotify`}</h1>
+      {list}
+    </div>
+  );
 };
 
 const mapStateToProps = state => {
   return {
-    tracks: state.tracks
+    tracks: state.tracks,
+    error: state.error,
+    country: state.countrySearched
   };
 };
 
