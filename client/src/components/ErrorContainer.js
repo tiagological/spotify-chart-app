@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { errorToggler } from '../actions';
 import '../styles/ErrorContainer.css';
 
@@ -25,7 +26,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { errorToggler }
-)(ErrorContainer);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { errorToggler }
+  )(ErrorContainer)
+);

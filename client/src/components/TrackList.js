@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
+import Menu from './Menu';
 import '../styles/TrackList.css';
 
 const TrackList = props => {
@@ -38,9 +39,7 @@ const TrackList = props => {
     <Redirect to='/' />
   ) : (
     <div className='ui container track-list-container'>
-      <Link to='/'>
-        <button>Home</button>
-      </Link>
+      <Menu />
       <h1 className='centered-header'>{`${
         props.country
       } Top 10 on Spotify`}</h1>
@@ -57,4 +56,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(TrackList);
+export default withRouter(connect(mapStateToProps)(TrackList));

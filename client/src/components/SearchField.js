@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import {
   fetchSongs,
   grabToken,
@@ -40,14 +40,11 @@ class SearchField extends React.Component {
     if (e.key === 'Enter') {
       e.preventDefault();
       this.searchFieldProcessor();
+      this.props.history.push('/results');
     }
   };
 
   render() {
-    if (this.props.tracks.length > 0) {
-      return <Redirect to='/results' />;
-    }
-
     return (
       <div>
         <div className='ui one column centered grid' id='search-bar-container'>
@@ -91,14 +88,16 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {
-    fetchSongs,
-    grabToken,
-    clearSearchTerm,
-    updateSearchTerm,
-    updateCountry,
-    errorToggler
-  }
-)(SearchField);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {
+      fetchSongs,
+      grabToken,
+      clearSearchTerm,
+      updateSearchTerm,
+      updateCountry,
+      errorToggler
+    }
+  )(SearchField)
+);
