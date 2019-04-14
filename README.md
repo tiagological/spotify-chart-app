@@ -2,4 +2,4 @@
 
 <p>Search any country for its top 10 on Spotify (please note not all countries are on Spotify).</p>
 
-<p>Click <a href='https://www.spotify-top1-app.herokuapp.com'>here</a> for a live demo.</p>
+<p>Click <a href='https://www.spotify-top10-app.herokuapp.com'>here</a> for a live demo.</p>
