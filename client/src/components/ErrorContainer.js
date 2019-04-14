@@ -11,13 +11,17 @@ const ErrorContainer = props => {
 
   const errorMessage =
     props.error !== '' ? (
-      <div className='ui floating warning message'>
+      <div className='ui floating warning message warning-message'>
         <i className='close icon' onClick={errorTogglerHandler} />
         <div className='header'>{props.error}</div>
       </div>
     ) : null;
 
-  return <div id='error-container'>{errorMessage}</div>;
+  return (
+    <div className='ui one column centered grid' id='error-container'>
+      {errorMessage}
+    </div>
+  );
 };
 
 const mapStateToProps = state => {
