@@ -6,9 +6,13 @@ body {
   background-color: #1d2228;
 }
 
+#root {
+  height: 100%;
+}
+
 #home-container {
   margin: 0 !important;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-image: url(../assets/music-concert.jpg);
   background-size: cover;

@@ -48,20 +48,20 @@ class SearchField extends React.Component {
     return (
       <div>
         <div className='ui one column centered grid' id='search-bar-container'>
-          <form>
-            <div className='ui input'>
-              <input
-                id='search-bar'
-                type='search'
-                placeholder='Search for a country...'
-                onKeyPress={this.onKeyPress}
-                onChange={this.searchFieldUpdater}
-                value={this.props.searchTerm}
-                required
-              />
-            </div>
-          </form>
+          <div className='ui icon input'>
+            <input
+              className='prompt'
+              id='search-bar'
+              type='text'
+              placeholder='Search for a country...'
+              onKeyPress={this.onKeyPress}
+              onChange={this.searchFieldUpdater}
+              value={this.props.searchTerm}
+              required
+            />
+          </div>
         </div>
+
         <div
           className='ui one column centered grid'
           id='search-button-container'>
