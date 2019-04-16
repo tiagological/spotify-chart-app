@@ -17,4 +17,5 @@ body {
   background-image: url(../assets/music-concert.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
