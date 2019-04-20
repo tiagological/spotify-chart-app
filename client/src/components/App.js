@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Home from './Home';
 import TrackList from './TrackList';
-import NotFound from './NotFound';
 
 const App = ({ store }) => {
   return (
@@ -12,7 +11,15 @@ const App = ({ store }) => {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/results' component={TrackList} />
-          <Route component={NotFound} />
+          <Route
+            component={() => (
+              <h1
+                className='ui text container'
+                style={{ 'text-align': 'center' }}>
+                Sorry, that page does not exist.
+              </h1>
+            )}
+          />
         </Switch>
       </Router>
     </Provider>
