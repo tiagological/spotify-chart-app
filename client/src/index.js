@@ -7,7 +7,4 @@ import reducers from './reducers';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
-ReactDOM.render(
-  <App store={store} style={{ height: '100%' }} />,
-  document.querySelector('#root')
-);
+ReactDOM.render(<App store={store} />, document.querySelector('#root'));
